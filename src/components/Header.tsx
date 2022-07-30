@@ -4,12 +4,20 @@ import { BiBed, BiCar } from 'react-icons/bi';
 import { IoAirplaneOutline } from 'react-icons/io5';
 import { TbBuildingCarousel } from 'react-icons/tb';
 
-const Header = () => {
+interface IProps {
+  showTitle?: boolean;
+}
+
+const Header = ({ showTitle = true }: IProps) => {
   return (
     <header className="bg-brandBlue text-white">
       <div className="max-w-6xl mx-auto px-2">
-        <ul className=" overflow-x-auto no-x-scroll-bar">
-          <div className="flex items-center space-x-3 px-1 pt-2 mb-20">
+        <ul className="overflow-x-auto no-x-scroll-bar">
+          <div
+            className={`flex items-center space-x-3 px-1 pt-2 ${
+              showTitle ? 'mb-20' : 'mb-3'
+            }`}
+          >
             <li>
               <Link to="#">
                 <div className="flex items-center space-x-1 px-3 py-2 border rounded-full border-white bg-brandBlue300">
@@ -54,13 +62,18 @@ const Header = () => {
             </li>
           </div>
         </ul>
-        {/* Main title */}
-        <h1 className="text-4xl font-bold mb-3 md:text-5xl">
-          Find your next stay
-        </h1>
-        <h2 className="text-xl md:text-2xl md:max-w-none">
-          Search deals on hotels, homes, and much more...
-        </h2>
+
+        {/* TITLE AND DESC */}
+        {showTitle && (
+          <>
+            <h1 className="text-4xl font-bold mb-3 md:text-5xl">
+              Find your next stay
+            </h1>
+            <h2 className="text-xl md:text-2xl md:max-w-none">
+              Search deals on hotels, homes, and much more...
+            </h2>
+          </>
+        )}
       </div>
     </header>
   );

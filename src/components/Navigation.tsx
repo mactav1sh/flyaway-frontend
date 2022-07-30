@@ -5,7 +5,9 @@ const Navigation = () => {
   return (
     <nav className="bg-brandBlue">
       <div className="flex justify-between px-5 py-4 max-w-6xl text-white mx-auto">
-        <p className="text-lg font-bold md:text-2xl ml-2">Booking.com</p>
+        <Link to="/" className="text-lg font-bold md:text-2xl ml-2">
+          Booking
+        </Link>
         <ul>
           <div className="flex space-x-2 ">
             <li>

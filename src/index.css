@@ -12,3 +12,61 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* .gridGallery {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 3rem;
+} */
+
+/* .galleryCol:nth-child(-1n + 3) {
+  grid-column: span 4;
+}
+.galleryCol:nth-last-child(2) {
+  grid-row-start: 2;
+  grid-column: 3 / span 4;
+}
+.galleryCol:nth-last-child(1) {
+  grid-row-start: 2;
+  grid-column: 7 / span 4;
+} */
+
+.textShadow {
+  text-shadow: 1px 1px 1px #000;
+}
+
+.imageFilter {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(0, 0, 0, 40%),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.galleryCol {
+  justify-self: center;
+}
+
+.galleryCol:nth-child(1) {
+  grid-column: span 6;
+  max-height: 20rem;
+}
+.galleryCol:nth-child(2) {
+  grid-column: span 6;
+  max-height: 20rem;
+}
+.galleryCol:nth-child(3) {
+  grid-row-start: 2;
+  grid-column: span 4;
+  max-height: 15rem;
+}
+.galleryCol:nth-child(4) {
+  grid-row-start: 2;
+  grid-column: span 4;
+  max-height: 15rem;
+}
+.galleryCol:nth-child(5) {
+  grid-row-start: 2;
+  grid-column: span 4;
+  max-height: 15rem;
+}

@@ -32,7 +32,7 @@ const SearchForm = () => {
   };
 
   return (
-    <section className=" bg-brandBlue flex justify-center pt-60 md:pt-20 relative">
+    <section className="bg-brandBlue mb-24 flex justify-center pt-60 md:pt-20 relative">
       <div className="max-w-6xl absolute -translate-y-48 w-full md:-translate-y-1/2">
         <form onSubmit={handleSubmit} className="mx-2">
           <div className="w-full p-1 shadow-md bg-brandYellow rounded-sm grid md:grid-rows-1 md:grid-cols-4 md:gap-x-1 gap-y-1 md:gap-y-0">
