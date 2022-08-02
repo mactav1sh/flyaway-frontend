@@ -73,6 +73,7 @@ const SearchForm = () => {
                   onChange={(item) => setDate([item.selection])}
                   moveRangeOnFirstSelection={false}
                   ranges={date}
+                  minDate={new Date()}
                   className="absolute -left-3.5 top-16 shadow-xl"
                 />
               ) : null}

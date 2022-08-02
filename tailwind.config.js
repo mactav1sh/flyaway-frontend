@@ -16,6 +16,8 @@ module.exports = {
         brandBrown: '#666',
         brandLightBlue100: '#f0f7fb',
         brandLightBlue200: '#c2ddf0',
+        brandGreen200: '#008009',
+        brandGreen100: '#009058',
       },
     },
   },
