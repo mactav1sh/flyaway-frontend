@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 import HotelSearchForm from '../components/HotelSearchForm';
 import HotelsList from '../components/HotelsList/HotelsList';
+import MailList from '../components/MailList';
+import Footer from '../components/Footer';
 
 const Hotels = () => {
   return (
@@ -13,6 +15,8 @@ const Hotels = () => {
         <HotelSearchForm />
         <HotelsList />
       </main>
+      <MailList />
+      <Footer />
     </>
   );
 };

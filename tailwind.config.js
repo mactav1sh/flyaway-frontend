@@ -15,6 +15,7 @@ module.exports = {
         brandYellowDark: '#dfb540',
         brandBrown: '#666',
         brandLightBlue100: '#f0f7fb',
+        brandLightBlue150: '#ebf3ff',
         brandLightBlue200: '#c2ddf0',
         brandGreen200: '#008009',
         brandGreen100: '#009058',

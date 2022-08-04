@@ -3,13 +3,12 @@ import { DateRange, Range } from 'react-date-range';
 import format from 'date-fns/format';
 import { IoBed, IoPersonSharp } from 'react-icons/io5';
 import { BiCalendar } from 'react-icons/bi';
+import { TbInfoCircle } from 'react-icons/tb';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import PersonsCount from './PersonsCount';
 
 const HotelSearchForm = () => {
-  // TODO: Refactor this component and SearchForm Compononent into single component
-
   // CALENDAR
   const [openCalendar, setOpenCalendar] = useState<boolean>(false);
   const [date, setDate] = useState<Range[]>([
@@ -39,7 +38,7 @@ const HotelSearchForm = () => {
   }
 
   return (
-    <aside className="bg-brandYellow flex-[1] p-5 rounded-sm md:self-start">
+    <aside className="bg-brandYellow flex-[1] p-5 rounded-sm md:self-start relative">
       <p className="text-xl font-semibold mb-2">Search</p>
       <form onSubmit={handleSubmit}>
         <div className="bg-brandYellow rounded-sm flex flex-col space-y-4">
@@ -170,6 +169,14 @@ const HotelSearchForm = () => {
           </button>
         </div>
       </form>
+      {/* MAP */}
+
+      <div className="hidden lg:flex lg:items-center lg:space-x-2 border bg-orange-100 rounded-sm w-full h-20 absolute -bottom-24 left-0 p-4">
+        <TbInfoCircle className="h-10 w-10 text-orange-900" />
+        <p className="text-xs font-semibold">
+          Check the latest COVID-19 restrictions before you travel.
+        </p>
+      </div>
     </aside>
   );
 };
