@@ -3,7 +3,6 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import HotelDesc from '../components/HotelDescription';
 import HotelGallery from '../components/HotelGallery';
-import HotelImagesList from '../components/HotelImagesList/HotelImagesList';
 import HotelSearchForm from '../components/HotelSearchForm';
 import MailList from '../components/MailList';
 import Navigation from '../components/Navigation';

@@ -6,22 +6,15 @@ import { BiBuildings, BiSwim } from 'react-icons/bi';
 import { TbBrandProducthunt } from 'react-icons/tb';
 
 const HotelDescription = () => {
+  const description =
+    'Heru Pyramids View Hotel provides accommodations with a restaurant and a bar. 1.5 mi from Giza Pyramids, the resort provides a garden and a terrace. The accommodations features a 24-hour front desk. All rooms at the resort are equipped with a seating area and a flat-screen TV. Each room has a private bathroom with a bidet and a hairdryer. At Heru Pyramids View Hotel each room is fitted with bed linen and towels. Great Sphinx is 3.1 mi from the accommodations. Cairo International Airport is 15 mi from the property.';
+
   return (
     <section className="flex flex-col space-y-10 md:flex-row md:justify-between md:space-y-0 ">
       {/* Text and facilities */}
       <div className="max-w-3xl md:pt-2 md:mr-10">
         {/* - text */}
-        <p className="text-sm break-all leading-7 mb-7 ">
-          Heru Pyramids View Hotel provides accommodations with a restaurant and
-          a bar. 1.5 mi from Giza Pyramids, the resort provides a garden and a
-          terrace. The accommodations features a 24-hour front desk. All rooms
-          at the resort are equipped with a seating area and a flat-screen TV.
-          Each room has a private bathroom with a bidet and a hairdryer. At Heru
-          Pyramids View Hotel each room is fitted with bed linen and towels.
-          Great Sphinx is 3.1 mi from the accommodations. Cairo International
-          Airport is 15 mi from the property.
-        </p>
-
+        <p className="text-sm leading-7 mb-7">{description}</p>
         {/* - facilities */}
         <div className="mb-7">
           <p className="font-bold">Most Popular facilities</p>
@@ -39,7 +32,6 @@ const HotelDescription = () => {
             ]}
           />
         </div>
-
         {/* - ATM */}
         <p>
           <span className="font-bold">ATM & Currency Exchange: </span>

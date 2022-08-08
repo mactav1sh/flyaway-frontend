@@ -28,7 +28,7 @@ const Header = ({ showTitle = true }: IProps) => {
             </li>
             <li>
               <Link to="#">
-                <div className="flex items-center space-x-1 px-3 py-2 rounded-full hover:bg-brandBlue300">
+                <div className="flex items-center space-x-1 px-3 py-2 rounded-full hover:bg-brandBlue300 cursor-not-allowed">
                   <IoAirplaneOutline className="w-5 h-5" />
                   <span>Flights</span>
                 </div>
@@ -36,7 +36,7 @@ const Header = ({ showTitle = true }: IProps) => {
             </li>
             <li>
               <Link to="#">
-                <div className="flex items-center space-x-1 w-32 px-3 py-2 rounded-full hover:bg-brandBlue300">
+                <div className="flex items-center space-x-1 w-32 px-3 py-2 rounded-full hover:bg-brandBlue300 cursor-not-allowed">
                   <BiCar className="w-5 h-5" />
                   <span>Car rentals</span>
                 </div>
@@ -44,7 +44,7 @@ const Header = ({ showTitle = true }: IProps) => {
             </li>
             <li>
               <Link to="#">
-                <div className="flex items-center space-x-1 px-3 py-2 rounded-full hover:bg-brandBlue300">
+                <div className="flex items-center space-x-1 px-3 py-2 rounded-full hover:bg-brandBlue300 cursor-not-allowed">
                   <TbBuildingCarousel className="w-5 h-5" />
                   <span>Attractions</span>
                 </div>
@@ -52,7 +52,7 @@ const Header = ({ showTitle = true }: IProps) => {
             </li>
             <li>
               <Link to="#">
-                <div className="flex items-center space-x-1 w-40 px-3 py-2 rounded-full hover:bg-brandBlue300 ">
+                <div className="flex items-center space-x-1 w-40 px-3 py-2 rounded-full hover:bg-brandBlue300 cursor-not-allowed ">
                   <span className="uppercase text-[0.6rem] border-t border-b ">
                     taxi
                   </span>

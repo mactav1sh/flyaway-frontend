@@ -3,21 +3,31 @@ import BrowsePropertyItem from './BrowseGalleryItem';
 
 interface IProps {
   title?: string;
+  data?: any[];
+  imgs?: {};
 }
 
-const BrowseGalleryList = ({ title = 'Browse' }: IProps) => {
+const BrowseGalleryList = ({
+  title = 'Browse',
+  data = [],
+  imgs = {},
+}: IProps) => {
   return (
-    <section className="max-w-6xl mb-20 mx-2 md:mx-auto">
+    <section className="max-w-6xl mb-20 mx-2 lg:mx-auto">
       <h2 className="text-2xl font-bold mb-4">{title}</h2>
       <ul className="overflow-x-auto no-x-scroll-bar">
         <div className="flex space-x-3">
-          <BrowsePropertyItem />
-          <BrowsePropertyItem />
-          <BrowsePropertyItem />
-          <BrowsePropertyItem />
-          <BrowsePropertyItem />
-          <BrowsePropertyItem />
-          <BrowsePropertyItem />
+          {data.map((data) => (
+            <BrowsePropertyItem
+              key={data._id}
+              img={imgs[data._id as keyof typeof imgs]}
+              title={data._id}
+              count={data.count}
+              // Optional Data
+              description={data.description ? data.description : null}
+              countUnit={data.countUnit ? data.countUnit : null}
+            />
+          ))}
         </div>
       </ul>
     </section>

@@ -52,14 +52,14 @@ const SearchForm = () => {
             </div>
 
             {/* INPUT 2 - DATES */}
-            <div className="flex items-center bg-white px-3.5 p-3.5 space-x-3.5 relative">
+            <div className="flex items-center bg-white px-3.5 space-x-3.5 relative">
               <BiCalendar className="h-6 w-6 text-gray-300" />
               <span
                 onClick={() => {
                   setOpenCount(false);
                   setOpenCalendar(!openCalendar);
                 }}
-                className="w-full cursor-pointer text-sm font-semibold"
+                className="w-full cursor-pointer text-sm font-semibold py-3.5"
               >
                 {format(date[0].startDate as Date, 'iii, MMM dd')}
                 {' · '}
@@ -80,10 +80,10 @@ const SearchForm = () => {
             </div>
 
             {/* INPUT 3 - ROOM OPTIONS */}
-            <div className="flex items-center bg-white px-3.5 p-3.5 space-x-3.5 relative">
+            <div className="flex items-center bg-white px-3.5 space-x-3.5 relative">
               <IoPersonSharp className="h-6 w-6 text-gray-300" />
               <span
-                className="w-full cursor-pointer text-sm font-semibold"
+                className="w-full cursor-pointer text-sm font-semibold py-3.5"
                 onClick={() => {
                   setOpenCalendar(false);
                   setOpenCount(!openCount);

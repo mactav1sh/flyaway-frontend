@@ -67,7 +67,7 @@ const HotelSearchForm = () => {
             <label htmlFor="destination" className="text-xs">
               Check-in/Check-out date
             </label>
-            <div className="flex items-center bg-white  space-x-3.5 relative px-2">
+            <div className="flex items-center bg-white space-x-3.5 relative px-2">
               <BiCalendar className="h-6 w-6 text-gray-300" />
               <span
                 onClick={() => {
