@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import LoctaionsGalleryItem from './LoctaionsGalleryItem';
 interface IProps {
   cities: [string, string, string, string, string];
@@ -7,7 +7,14 @@ interface IProps {
 }
 
 const LoctaionsGalleryList = ({ data, imgs = [], cities }: IProps) => {
-  console.log(data);
+  const [number, setNumber] = useState<number>(0);
+
+  useEffect(() => {
+    setInterval(() => {
+      setNumber((prev) => prev + 1);
+    }, 1000);
+  }, []);
+
   return (
     <div className="max-w-6xl mx-auto">
       <ul>
@@ -16,6 +23,7 @@ const LoctaionsGalleryList = ({ data, imgs = [], cities }: IProps) => {
             if (cities.includes(property._id)) {
               return (
                 <LoctaionsGalleryItem
+                  key={property._id}
                   title={property._id}
                   img={imgs[property._id as keyof typeof imgs]}
                   count={property.count}

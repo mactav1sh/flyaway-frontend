@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HotelsListItem = () => {
+const PropertiesListItem = () => {
   return (
     <li className="p-4 border border-gray-300 flex flex-col space-y-12 lg:space-x-7 lg:flex-row lg:space-y-0">
       {/* IMAGE AND DESC */}
@@ -72,4 +72,4 @@ const HotelsListItem = () => {
   );
 };
 
-export default HotelsListItem;
+export default PropertiesListItem;

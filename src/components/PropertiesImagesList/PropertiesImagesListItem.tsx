@@ -6,7 +6,11 @@ interface IProps {
   setImage: Dispatch<SetStateAction<string>>;
 }
 
-const HotelImagesListItem = ({ imageUrl, setImage, selectedImage }: IProps) => {
+const PropertiesImagesListItem = ({
+  imageUrl,
+  setImage,
+  selectedImage,
+}: IProps) => {
   return (
     <div className="cursor-pointer" onClick={() => setImage(imageUrl)}>
       <img
@@ -22,4 +26,4 @@ const HotelImagesListItem = ({ imageUrl, setImage, selectedImage }: IProps) => {
   );
 };
 
-export default HotelImagesListItem;
+export default PropertiesImagesListItem;

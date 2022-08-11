@@ -1,9 +1,9 @@
 import React from 'react';
-import HotelImagesList from './HotelImagesList/HotelImagesList';
+import PropertiesImagesList from './PropertiesImagesList/PropertiesImagesList';
 import { IoLocationSharp, IoShieldCheckmarkSharp } from 'react-icons/io5';
 import { TbLeaf } from 'react-icons/tb';
 
-const HotelGallery = () => {
+const PropertiesGallery = () => {
   return (
     <div className="flex-[3.5] flex flex-col space-y-10">
       {/* TITLE AND RESERVE BUTTON */}
@@ -47,10 +47,10 @@ const HotelGallery = () => {
       </div>
       {/* IMAGE GALLERY */}
       <div className="">
-        <HotelImagesList />
+        <PropertiesImagesList />
       </div>
     </div>
   );
 };
 
-export default HotelGallery;
+export default PropertiesGallery;

@@ -1,34 +1,43 @@
-import React, { useState } from 'react';
-import { DateRange, Range } from 'react-date-range';
+import React, { useState, useContext, useRef, LegacyRef } from 'react';
+import { DateRange } from 'react-date-range';
+import { Navigate, useNavigate } from 'react-router-dom';
 import format from 'date-fns/format';
 import { IoBed, IoPersonSharp } from 'react-icons/io5';
 import { BiCalendar } from 'react-icons/bi';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import PersonsCount from './PersonsCount';
+import { SearchContext } from '../contexts/SearchContext';
+import useOnOutsideClick from '../hooks/useOnOutsideClick';
 
 const SearchForm = () => {
-  // CALENDAR
+  const personsMenuRef = useRef<HTMLDivElement>();
+  const calendarMenuRef = useRef<HTMLDivElement>();
+  // Canlendar menu
   const [openCalendar, setOpenCalendar] = useState<boolean>(false);
-  const [date, setDate] = useState<Range[]>([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: 'selection',
-    },
-  ]);
-
-  // PERSONS
+  // Persons menu
   const [openCount, setOpenCount] = useState<boolean>(false);
-  const [roomOptions, setRoomOptions] = useState({
-    adults: 2,
-    children: 0,
-    room: 1,
-  });
+  // Search context
+  const {
+    date,
+    setDate,
+    roomOptions,
+    setRoomOptions,
+    searchInput,
+    setSearchInput,
+  } = useContext(SearchContext);
+  // Navigation
+  const navigate = useNavigate();
+  // Close on click outside
+  useOnOutsideClick(personsMenuRef, setOpenCount);
+  useOnOutsideClick(calendarMenuRef, setOpenCalendar);
 
   // FORM
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    navigate(
+      `/properties?location=${searchInput}&minPrice=${roomOptions.minPrice}&maxPrice=${roomOptions.maxPrice}&limit=10`
+    );
   };
 
   return (
@@ -39,6 +48,10 @@ const SearchForm = () => {
             {/* INPUT 1 - LOCATION */}
             <div className="flex items-center">
               <input
+                required
+                minLength={4}
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
                 type="text"
                 name=""
                 id="destination"
@@ -52,8 +65,11 @@ const SearchForm = () => {
             </div>
 
             {/* INPUT 2 - DATES */}
-            <div className="flex items-center bg-white px-3.5 space-x-3.5 relative">
-              <BiCalendar className="h-6 w-6 text-gray-300" />
+            <div
+              ref={calendarMenuRef as LegacyRef<HTMLDivElement>}
+              className="flex items-center bg-white px-3.5 space-x-3.5 relative z-20"
+            >
+              <BiCalendar className="h-6 w-6 text-gray-300 " />
               <span
                 onClick={() => {
                   setOpenCount(false);
@@ -80,7 +96,10 @@ const SearchForm = () => {
             </div>
 
             {/* INPUT 3 - ROOM OPTIONS */}
-            <div className="flex items-center bg-white px-3.5 space-x-3.5 relative">
+            <div
+              ref={personsMenuRef as LegacyRef<HTMLDivElement>}
+              className="flex items-center bg-white px-3.5 space-x-3.5 relative"
+            >
               <IoPersonSharp className="h-6 w-6 text-gray-300" />
               <span
                 className="w-full cursor-pointer text-sm font-semibold py-3.5"

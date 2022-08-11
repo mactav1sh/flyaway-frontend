@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import HotelImagesListItem from './HotelImagesListItem';
+import PropertiesImagesListItem from './PropertiesImagesListItem';
 
-const HotelImagesList = () => {
+const PropertiesImagesList = () => {
   const [selectedImage, setSelectedImage] = useState<string>('');
   const hotelImages = [
     'https://images.pexels.com/photos/53464/sheraton-palace-hotel-lobby-architecture-san-francisco-53464.jpeg',
@@ -26,7 +26,7 @@ const HotelImagesList = () => {
       {/* slides */}
       <div className="flex  space-x-1 lg:max-w-3xl">
         {hotelImages.map((imageUrl) => (
-          <HotelImagesListItem
+          <PropertiesImagesListItem
             key={Math.random()}
             imageUrl={imageUrl}
             setImage={setSelectedImage}
@@ -38,4 +38,4 @@ const HotelImagesList = () => {
   );
 };
 
-export default HotelImagesList;
+export default PropertiesImagesList;

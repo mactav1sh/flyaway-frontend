@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useRef, LegacyRef } from 'react';
 import { DateRange, Range } from 'react-date-range';
+import { Link, useNavigate } from 'react-router-dom';
 import format from 'date-fns/format';
 import { IoBed, IoPersonSharp } from 'react-icons/io5';
 import { BiCalendar } from 'react-icons/bi';
@@ -7,31 +8,42 @@ import { TbInfoCircle } from 'react-icons/tb';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import PersonsCount from './PersonsCount';
+import { SearchContext } from '../contexts/SearchContext';
+import useOnOutsideClick from '../hooks/useOnOutsideClick';
 
-const HotelSearchForm = () => {
-  // CALENDAR
+const PropertySearchForm = () => {
+  // Refs
+  const personsMenuRef = useRef<HTMLDivElement>();
+  const calendarMenuRef = useRef<HTMLDivElement>();
+  // Navigate
+  const navigate = useNavigate();
+  // Calendar menu
   const [openCalendar, setOpenCalendar] = useState<boolean>(false);
-  const [date, setDate] = useState<Range[]>([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: 'selection',
-    },
-  ]);
-
-  // PERSONS
+  // Persons menu
   const [openCount, setOpenCount] = useState<boolean>(false);
-  const [roomOptions, setRoomOptions] = useState({
-    adults: 2,
-    children: 0,
-    room: 1,
-  });
+  // Search context
+  const {
+    date,
+    setDate,
+    roomOptions,
+    setRoomOptions,
+    searchInput,
+    setSearchInput,
+  } = useContext(SearchContext);
 
-  // FORM
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  // Close on click outside
+  useOnOutsideClick(personsMenuRef, setOpenCount);
+  useOnOutsideClick(calendarMenuRef, setOpenCalendar);
+
+  // Form
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    navigate(
+      `/properties?location=${searchInput}&minPrice=${roomOptions.minPrice}&maxPrice=${roomOptions.maxPrice}&limit=10`
+    );
   };
 
+  // Count of nights
   let days;
   if (date[0].startDate && date[0].endDate) {
     days = date[0].endDate.getDay() - date[0].startDate.getDay();
@@ -42,7 +54,6 @@ const HotelSearchForm = () => {
       <p className="text-xl font-semibold mb-2">Search</p>
       <form onSubmit={handleSubmit}>
         <div className="bg-brandYellow rounded-sm flex flex-col space-y-4">
-          {days ? days : null}
           {/* INPUT 1 - LOCATION */}
           <div className="flex flex-col space-y-2">
             <label htmlFor="destination" className="text-xs">
@@ -50,6 +61,10 @@ const HotelSearchForm = () => {
             </label>
             <div className="flex items-center ">
               <input
+                required
+                minLength={4}
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
                 type="text"
                 id="destination"
                 placeholder="Where are you going?"
@@ -63,7 +78,10 @@ const HotelSearchForm = () => {
           </div>
 
           {/* INPUT 2 - DATES */}
-          <div className="flex flex-col space-y-2">
+          <div
+            ref={calendarMenuRef as LegacyRef<HTMLDivElement>}
+            className="flex flex-col space-y-2"
+          >
             <label htmlFor="destination" className="text-xs">
               Check-in/Check-out date
             </label>
@@ -93,13 +111,17 @@ const HotelSearchForm = () => {
                 />
               ) : null}
             </div>
+
             {(days as number) > 0 && (
               <p className="text-xs">{days}-night stay</p>
             )}
           </div>
 
           {/* INPUT 3 - ROOM OPTIONS */}
-          <div className="flex flex-col space-y-2">
+          <div
+            ref={personsMenuRef as LegacyRef<HTMLDivElement>}
+            className="flex flex-col space-y-2"
+          >
             <label htmlFor="destination" className="text-xs">
               Number of persons
             </label>
@@ -125,11 +147,12 @@ const HotelSearchForm = () => {
                 <PersonsCount
                   roomOptions={roomOptions}
                   setRoomOptions={setRoomOptions}
-                  styleClasses="absolute -left-3.5 top-16 shadow-xl"
+                  styleClasses="absolute -left-3.5 top-10 shadow-xl"
                 />
               ) : null}
             </div>
           </div>
+
           {/* MAX AND MIN PRICE */}
           <div className="flex flex-col space-y-4">
             <div className="flex flex-col space-y-2">
@@ -137,6 +160,13 @@ const HotelSearchForm = () => {
                 Min price/night
               </label>
               <input
+                value={roomOptions.minPrice}
+                onChange={(e) =>
+                  setRoomOptions((prevState) => ({
+                    ...prevState,
+                    minPrice: +e.target.value,
+                  }))
+                }
                 id="minPrice"
                 min={0}
                 type="number"
@@ -151,6 +181,13 @@ const HotelSearchForm = () => {
                 Max price/night
               </label>
               <input
+                value={roomOptions.maxPrice}
+                onChange={(e) =>
+                  setRoomOptions((prevState) => ({
+                    ...prevState,
+                    maxPrice: +e.target.value,
+                  }))
+                }
                 id="maxPrice"
                 min={0}
                 type="number"
@@ -181,4 +218,4 @@ const HotelSearchForm = () => {
   );
 };
 
-export default HotelSearchForm;
+export default PropertySearchForm;

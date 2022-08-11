@@ -55,6 +55,7 @@ const PersonsCount = ({
           {/* Adults buttons */}
           <div className="flex w-32 items-center justify-between">
             <button
+              type="button"
               onClick={() => handleClick('adults', '-')}
               disabled={minCount(1, 'adults')}
               className="w-10 h-10 border text-lg text-brandBlueSec100 border-brandBlueSec100 rounded-sm hover:bg-brandLightBlue100 focus:outline focus:outline-[3px] focus:outline-brandLightBlue200 disabled:cursor-not-allowed disabled:text-gray-400 shrink-0"
@@ -63,6 +64,7 @@ const PersonsCount = ({
             </button>
             <span>{roomOptions.adults}</span>
             <button
+              type="button"
               onClick={() => handleClick('adults', '+')}
               disabled={maxCount(30, 'adults')}
               className="w-10 h-10 border text-lg text-brandBlueSec100 border-brandBlueSec100 rounded-sm hover:bg-brandLightBlue100 focus:outline focus:outline-[3px] focus:outline-brandLightBlue200 disabled:cursor-not-allowed disabled:text-gray-400 shrink-0"
@@ -78,6 +80,7 @@ const PersonsCount = ({
           {/* Childred buttons */}
           <div className="flex w-32 items-center justify-between">
             <button
+              type="button"
               onClick={() => handleClick('children', '-')}
               disabled={minCount(0, 'children')}
               className="w-10 h-10 border text-lg text-brandBlueSec100 border-brandBlueSec100 rounded-sm hover:bg-brandLightBlue100 focus:outline focus:outline-[3px] focus:outline-brandLightBlue200 disabled:cursor-not-allowed disabled:text-gray-400 shrink-0"
@@ -86,6 +89,7 @@ const PersonsCount = ({
             </button>
             <span>{roomOptions.children}</span>
             <button
+              type="button"
               onClick={() => handleClick('children', '+')}
               disabled={maxCount(10, 'children')}
               className="w-10 h-10 border text-lg text-brandBlueSec100 border-brandBlueSec100 rounded-sm hover:bg-brandLightBlue100 focus:outline focus:outline-[3px] focus:outline-brandLightBlue200 disabled:cursor-not-allowed disabled:text-gray-400 shrink-0"
@@ -101,6 +105,7 @@ const PersonsCount = ({
           {/* Room buttons */}
           <div className="flex w-32 items-center justify-between">
             <button
+              type="button"
               onClick={() => handleClick('room', '-')}
               disabled={minCount(1, 'room')}
               className="w-10 h-10 border text-lg text-brandBlueSec100 border-brandBlueSec100 rounded-sm hover:bg-brandLightBlue100 focus:outline focus:outline-[3px] focus:outline-brandLightBlue200 disabled:cursor-not-allowed disabled:text-gray-400 shrink-0"
@@ -109,6 +114,7 @@ const PersonsCount = ({
             </button>
             <span>{roomOptions.room}</span>
             <button
+              type="button"
               onClick={() => handleClick('room', '+')}
               disabled={maxCount(30, 'room')}
               className="w-10 h-10 border text-lg text-brandBlueSec100 border-brandBlueSec100 rounded-sm hover:bg-brandLightBlue100 focus:outline focus:outline-[3px] focus:outline-brandLightBlue200 disabled:cursor-not-allowed disabled:text-gray-400 shrink-0"
