@@ -36,6 +36,7 @@ const Home = () => {
           title="Browse by property type"
           data={propertiesData.properties}
           imgs={propertiesTypesImgs}
+          route="/properties?type="
         />
       )}
 
@@ -53,6 +54,7 @@ const Home = () => {
         title="Connect with other travelers"
         data={communitesData}
         imgs={communitesImgs}
+        route="/blog/"
       />
       <MailList />
       <Footer />

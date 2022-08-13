@@ -5,10 +5,11 @@ import { MdBalcony } from 'react-icons/md';
 import { BiBuildings, BiSwim } from 'react-icons/bi';
 import { TbBrandProducthunt } from 'react-icons/tb';
 
-const PropertyDescription = () => {
-  const description =
-    'Heru Pyramids View Hotel provides accommodations with a restaurant and a bar. 1.5 mi from Giza Pyramids, the resort provides a garden and a terrace. The accommodations features a 24-hour front desk. All rooms at the resort are equipped with a seating area and a flat-screen TV. Each room has a private bathroom with a bidet and a hairdryer. At Heru Pyramids View Hotel each room is fitted with bed linen and towels. Great Sphinx is 3.1 mi from the accommodations. Cairo International Airport is 15 mi from the property.';
+interface IProps {
+  description: string;
+}
 
+const PropertyDescription = ({ description }: IProps) => {
   return (
     <section className="flex flex-col space-y-10 md:flex-row md:justify-between md:space-y-0 ">
       {/* Text and facilities */}

@@ -5,12 +5,14 @@ interface IProps {
   title?: string;
   data?: any[];
   imgs?: {};
+  route?: string;
 }
 
 const BrowseGalleryList = ({
   title = 'Browse',
   data = [],
   imgs = {},
+  route,
 }: IProps) => {
   return (
     <section className="max-w-6xl mb-20 mx-2 lg:mx-auto">
@@ -26,6 +28,7 @@ const BrowseGalleryList = ({
               // Optional Data
               description={data.description ? data.description : null}
               countUnit={data.countUnit ? data.countUnit : null}
+              route={`${route}${data._id}`}
             />
           ))}
         </div>

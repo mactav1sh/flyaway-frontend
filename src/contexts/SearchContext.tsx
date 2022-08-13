@@ -41,7 +41,7 @@ export const SearchContext = createContext<IContext>({
     children: 0,
     room: 1,
     minPrice: 100,
-    maxPrice: 10000000,
+    maxPrice: 10000,
   },
   searchInput: '',
   setDate: function () {},
@@ -50,6 +50,8 @@ export const SearchContext = createContext<IContext>({
 });
 
 const SearchProvider = ({ children }: IProps) => {
+  // TODO: REPLACE useState wit useReducer
+
   // date options
   const [date, setDate] = useState<Range[]>([
     {
@@ -64,7 +66,7 @@ const SearchProvider = ({ children }: IProps) => {
     children: 0,
     room: 1,
     minPrice: 100,
-    maxPrice: 10000000,
+    maxPrice: 10000,
   });
   // search input
   const [searchInput, setSearchInput] = useState('');

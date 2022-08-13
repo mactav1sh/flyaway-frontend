@@ -3,7 +3,30 @@ import PropertiesImagesList from './PropertiesImagesList/PropertiesImagesList';
 import { IoLocationSharp, IoShieldCheckmarkSharp } from 'react-icons/io5';
 import { TbLeaf } from 'react-icons/tb';
 
-const PropertiesGallery = () => {
+interface IProperty {
+  _id: string;
+  name: string;
+  type: string;
+  country: string;
+  city: string;
+  address: string;
+  distance: number;
+  photos?: string[];
+  shortDesc: string;
+  desc: string;
+  rating?: number;
+  rooms?: string[];
+  beds: string;
+  price: number;
+  interior: string;
+  featured: boolean;
+}
+
+interface IProps {
+  data: IProperty;
+}
+
+const PropertiesGallery = ({ data }: IProps) => {
   return (
     <div className="flex-[3.5] flex flex-col space-y-10">
       {/* TITLE AND RESERVE BUTTON */}
@@ -12,10 +35,10 @@ const PropertiesGallery = () => {
         <div>
           {/* -- title */}
           <div className="flex space-x-1.5 mb-1">
-            <span className="bg-gray-500 text-xs rounded-sm text-white px-1 py-0.5 self-center">
-              Hotel
+            <span className="bg-gray-500 text-xs rounded-sm text-white px-1 py-0.5 self-center capitalize">
+              {data.type}
             </span>
-            <p className="text-2xl font-bold">Heru Pyramids View Hotel</p>
+            <p className="text-2xl font-bold">{data.name}</p>
           </div>
           {/* --tags  */}
           <div className="mb-2">
@@ -28,10 +51,7 @@ const PropertiesGallery = () => {
           {/* -- location */}
           <div className="flex items-center space-x-1">
             <IoLocationSharp className="text-brandBlue200" />
-            <p>
-              Abu Al Houl tourist street Mansourya rd, Haram, Giza, 12557 Cairo,
-              Egypt
-            </p>
+            <p>{data.address}</p>
           </div>
         </div>
         {/* - Reservation button */}
@@ -47,7 +67,7 @@ const PropertiesGallery = () => {
       </div>
       {/* IMAGE GALLERY */}
       <div className="">
-        <PropertiesImagesList />
+        <PropertiesImagesList data={data.photos as string[]} />
       </div>
     </div>
   );

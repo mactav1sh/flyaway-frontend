@@ -8,13 +8,9 @@ interface IProps {
 const PropertiesList = ({ data }: IProps) => {
   return (
     <ul className="flex-[3.5] flex flex-col space-y-4">
-      <PropertiesListItem />
-      <PropertiesListItem />
-      <PropertiesListItem />
-      <PropertiesListItem />
-      <PropertiesListItem />
-      <PropertiesListItem />
-      <PropertiesListItem />
+      {data.map((property) => (
+        <PropertiesListItem key={property._id} data={property} />
+      ))}
     </ul>
   );
 };

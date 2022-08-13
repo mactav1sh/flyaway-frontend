@@ -41,6 +41,7 @@ const PropertySearchForm = () => {
     navigate(
       `/properties?location=${searchInput}&minPrice=${roomOptions.minPrice}&maxPrice=${roomOptions.maxPrice}&limit=10`
     );
+    setSearchInput('');
   };
 
   // Count of nights
@@ -92,7 +93,7 @@ const PropertySearchForm = () => {
                   setOpenCount(false);
                   setOpenCalendar(!openCalendar);
                 }}
-                className="w-full cursor-pointer text-sm py-2"
+                className="w-full cursor-pointer text-sm py-2 min-w-max"
               >
                 {format(date[0].startDate as Date, 'iii, MMM dd')}
                 {' · '}
@@ -128,7 +129,7 @@ const PropertySearchForm = () => {
             <div className="flex items-center bg-white space-x-3.5 relative px-2">
               <IoPersonSharp className="h-6 w-6 text-gray-300" />
               <span
-                className="w-full cursor-pointer text-sm py-2"
+                className="w-full cursor-pointer text-sm py-2 min-w-[12.7rem]"
                 onClick={() => {
                   setOpenCalendar(false);
                   setOpenCount(!openCount);
