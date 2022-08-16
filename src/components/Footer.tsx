@@ -27,7 +27,7 @@ const Footer = () => {
         </li>
         <li>
           <Link to="/" className="underline font-bold text-sm">
-            About Booking.com
+            About Booking
           </Link>
         </li>
       </ul>

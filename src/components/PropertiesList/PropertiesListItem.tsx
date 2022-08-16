@@ -75,7 +75,7 @@ const PropertiesListItem = ({ data }: IProps) => {
           <div className="py-0.5 pl-3 border-l-[3px]">
             <p className="font-bold">{shortDesc}</p>
             {/* TODO: ADD A FUNC TO REPLACE , WITH • IN <P> FOR ROOM DESC BELOW */}
-            <p className="text-sm max-w-sm">{interior}</p>
+            <p className="text-sm max-w-sm mb-2">{interior}</p>
             <p className="font-bold text-brandGreen200 text-sm">
               FREE cancellation • No prepayment needed
             </p>

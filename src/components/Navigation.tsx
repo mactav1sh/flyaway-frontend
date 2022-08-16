@@ -21,7 +21,7 @@ const Navigation = () => {
 
             <li>
               <Link
-                to="/sign-in"
+                to="/signin"
                 className="px-4 py-1 font-semibold text-brandBlue200 bg-white border border-brandBlue200 rounded-sm hover:bg-blue-50 active:outline active:outline-brandBlue300"
               >
                 Sign in

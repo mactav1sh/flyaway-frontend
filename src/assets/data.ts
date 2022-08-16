@@ -22,7 +22,7 @@ export const propertiesTypesImgs = {
 export const locations: [string, string, string, string, string] = [
   'hurghada',
   'cairo',
-  'sharm el sheikh',
+  'sharm_el_sheikh',
   'istanbul',
   'dubai',
 ];
@@ -32,7 +32,7 @@ export const locationsImgs = {
     'https://cf.bstatic.com/xdata/images/city/1680x560/644333.jpg?k=5ef264baf6fb50c13b119d4b378111f7072e30c42996c51ce7e76f2574e1d785&o=',
   cairo:
     'https://images.pexels.com/photos/11010719/pexels-photo-11010719.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-  'sharm el sheikh':
+  sharm_el_sheikh:
     'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/01/e0/2d/89/view-from-lobby-terrace.jpg?w=1100&h=-1&s=1',
 
   istanbul:

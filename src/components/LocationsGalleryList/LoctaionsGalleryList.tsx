@@ -7,14 +7,6 @@ interface IProps {
 }
 
 const LoctaionsGalleryList = ({ data, imgs = [], cities }: IProps) => {
-  const [number, setNumber] = useState<number>(0);
-
-  useEffect(() => {
-    setInterval(() => {
-      setNumber((prev) => prev + 1);
-    }, 1000);
-  }, []);
-
   return (
     <div className="max-w-6xl mx-auto">
       <ul>

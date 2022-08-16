@@ -7,10 +7,10 @@ import {
 } from 'react';
 import { Range } from 'react-date-range';
 
+// INTERFACES
 interface IProps {
   children?: ReactNode;
 }
-
 interface IRoom {
   adults: number;
   children: number;
@@ -18,7 +18,6 @@ interface IRoom {
   minPrice?: number;
   maxPrice?: number;
 }
-
 interface IContext {
   date: Range[];
   setDate: Dispatch<SetStateAction<Range[]>>;
@@ -28,6 +27,7 @@ interface IContext {
   setSearchInput: Dispatch<SetStateAction<string>>;
 }
 
+// CREATING CONTEXT WITH DEFAULT VALUES
 export const SearchContext = createContext<IContext>({
   date: [
     {
@@ -49,10 +49,14 @@ export const SearchContext = createContext<IContext>({
   setSearchInput: function () {},
 });
 
+// SEARCH CONTEXT PROVIDER
 const SearchProvider = ({ children }: IProps) => {
-  // TODO: REPLACE useState wit useReducer
+  // TODO: REPLACE useState with useReducer
+  // 1. SearchForm with contain usestates
+  // 2. On form submit searchForm will dispatch an action with form values
+  // 3. PropertySearchForm will get values from reducer state
 
-  // date options
+  // Date options
   const [date, setDate] = useState<Range[]>([
     {
       startDate: new Date(),
@@ -60,7 +64,8 @@ const SearchProvider = ({ children }: IProps) => {
       key: 'selection',
     },
   ]);
-  // room options
+
+  // Room options
   const [roomOptions, setRoomOptions] = useState<IRoom>({
     adults: 2,
     children: 0,
@@ -68,7 +73,8 @@ const SearchProvider = ({ children }: IProps) => {
     minPrice: 100,
     maxPrice: 10000,
   });
-  // search input
+
+  // Search input
   const [searchInput, setSearchInput] = useState('');
 
   const value = {
@@ -79,6 +85,7 @@ const SearchProvider = ({ children }: IProps) => {
     searchInput,
     setSearchInput,
   };
+
   return (
     <SearchContext.Provider value={value}>{children}</SearchContext.Provider>
   );

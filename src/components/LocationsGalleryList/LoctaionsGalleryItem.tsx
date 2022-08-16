@@ -8,13 +8,17 @@ interface IProps {
 }
 
 const LoctaionsGalleryItem = ({ title, img, count }: IProps) => {
+  const titleWithSpaces = title.includes('_')
+    ? title.replaceAll('_', ' ')
+    : title;
+
   return (
     <li className="galleryCol">
       <Link to={`/properties?location=${title}`}>
         <div className="relative hover:outline hover:outline-1 hover:outline-brandYellow rounded-sm overflow-hidden group h-full">
           <img
             src={img}
-            alt={title}
+            alt={titleWithSpaces}
             className="object-cover object-top h-full md:h-full w-full"
           />
           {/* IMAGE SHADOW EFFECT */}
@@ -24,7 +28,7 @@ const LoctaionsGalleryItem = ({ title, img, count }: IProps) => {
           <div className="text-white absolute top-4 left-4 textShadow">
             <div className="flex items-end space-x-2">
               <p className="md:text-3xl text-xl font-bold capitalize">
-                {title}
+                {titleWithSpaces}
               </p>
             </div>
             <p className="text-sm md:text-base">{count} properties</p>
