@@ -46,9 +46,9 @@ export const locationsImgs = {
 export const communitesImgs = {
   egypt:
     'https://images.pexels.com/photos/71241/pexels-photo-71241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-  'travel talk':
+  travel_talk:
     'https://images.pexels.com/photos/6150432/pexels-photo-6150432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-  'more communities':
+  more_communities:
     'https://img.freepik.com/free-vector/people-holding-connected-copy-space-circle-icons_53876-59904.jpg?w=900&t=st=1659894083~exp=1659894683~hmac=dc47758933370a6a58bf3244ffe6eaedb8954a1a429574b2ba07e06d187216b9',
 };
 
@@ -60,13 +60,13 @@ export const communitesData = [
     description: 'travel community',
   },
   {
-    _id: 'travel talk',
+    _id: 'travel_talk',
     count: 600,
     countUnit: 'travellers',
     description: 'general discussion',
   },
   {
-    _id: 'more communities',
+    _id: 'more_communities',
     countUnit: 'travellers',
     count: 100,
     description: 'view all',

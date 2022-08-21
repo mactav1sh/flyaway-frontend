@@ -18,9 +18,6 @@ const SigninForm = () => {
     }));
   };
 
-  // abdelrahman@mail.com
-  // password123
-  console.log(error);
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const user = await signIn(formData.email, formData.password);

@@ -9,7 +9,7 @@ const Signin = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  // If signed in redirect to home
+  // If signedin redirect to home
   useEffect(() => {
     if (user) {
       navigate('/');

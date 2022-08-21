@@ -1,4 +1,4 @@
-import { useReducer, createContext, ReactNode } from 'react';
+import { createContext, ReactNode } from 'react';
 import useProvideAuth from '../hooks/useProvideAuth';
 
 interface IProps {
@@ -16,6 +16,13 @@ interface IContext {
   loading: boolean;
   error: string;
   signIn: (email: string, password: string) => Promise<void | IUser>;
+  signOut: () => Promise<void>;
+  register: (
+    name: string,
+    email: string,
+    password: string,
+    passwordConfirm: string
+  ) => Promise<void | IUser>;
 }
 
 // CREATING CONTEXT

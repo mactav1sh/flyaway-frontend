@@ -27,27 +27,8 @@ interface IContext {
   setSearchInput: Dispatch<SetStateAction<string>>;
 }
 
-// CREATING CONTEXT WITH DEFAULT VALUES
-export const SearchContext = createContext<IContext>({
-  date: [
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: 'selection',
-    },
-  ],
-  roomOptions: {
-    adults: 2,
-    children: 0,
-    room: 1,
-    minPrice: 100,
-    maxPrice: 10000,
-  },
-  searchInput: '',
-  setDate: function () {},
-  setRoomOptions: function () {},
-  setSearchInput: function () {},
-});
+// CREATING CONTEXT
+export const SearchContext = createContext<IContext>({} as IContext);
 
 // SEARCH CONTEXT PROVIDER
 const SearchProvider = ({ children }: IProps) => {

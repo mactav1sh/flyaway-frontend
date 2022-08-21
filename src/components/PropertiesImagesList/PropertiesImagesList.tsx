@@ -20,7 +20,7 @@ const PropertiesImagesList = ({ data }: IProps) => {
         className="h-72 md:h-80 lg:h-96  object-cover"
       />
       {/* slides */}
-      <div className="flex  space-x-1 lg:max-w-3xl overflow-x-auto no-x-scroll-bar">
+      <div className="flex max-w-sm space-x-1 lg:max-w-3xl overflow-x-auto no-x-scroll-bar p-1">
         {data.map((imageUrl) => (
           <PropertiesImagesListItem
             key={Math.random()}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import LoctaionsGalleryItem from './LoctaionsGalleryItem';
 interface IProps {
   cities: [string, string, string, string, string];

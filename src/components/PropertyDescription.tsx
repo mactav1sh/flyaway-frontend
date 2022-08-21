@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import TagList from './TagList/TagList';
 import { GrLocation } from 'react-icons/gr';
 import { MdBalcony } from 'react-icons/md';
@@ -7,9 +7,10 @@ import { TbBrandProducthunt } from 'react-icons/tb';
 
 interface IProps {
   description: string;
+  openModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const PropertyDescription = ({ description }: IProps) => {
+const PropertyDescription = ({ description, openModal }: IProps) => {
   return (
     <section className="flex flex-col space-y-10 md:flex-row md:justify-between md:space-y-0 ">
       {/* Text and facilities */}
@@ -87,7 +88,11 @@ const PropertyDescription = ({ description }: IProps) => {
           </span>
         </div>
         {/* reserve button */}
-        <button className="py-1 w-full  font-semibold  bg-brandBlueSec100 text-white hover:bg-brandBlueSec200 rounded-sm">
+        <button
+          onClick={() => openModal((prev) => !prev)}
+          type="button"
+          className="py-1 w-full  font-semibold  bg-brandBlueSec100 text-white hover:bg-brandBlueSec200 rounded-sm"
+        >
           Reserve
         </button>
       </div>

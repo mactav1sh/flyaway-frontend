@@ -7,20 +7,23 @@ import Signin from './pages/Signin';
 import Register from './pages/Register';
 import SearchProvider from './contexts/SearchContext';
 import AuthProvider from './contexts/AuthContext';
+import ReservationProvider from './contexts/ReservationContext';
 
 function App() {
   return (
     <Router>
       <AuthProvider>
-        <SearchProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/signin" element={<Signin />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/properties" element={<Properties />} />
-            <Route path="/property/:propertyId" element={<Property />} />
-          </Routes>
-        </SearchProvider>
+        <ReservationProvider>
+          <SearchProvider>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/signin" element={<Signin />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/properties" element={<Properties />} />
+              <Route path="/property/:propertyId" element={<Property />} />
+            </Routes>
+          </SearchProvider>
+        </ReservationProvider>
       </AuthProvider>
     </Router>
   );

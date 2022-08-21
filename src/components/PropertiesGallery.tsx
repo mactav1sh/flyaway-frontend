@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import PropertiesImagesList from './PropertiesImagesList/PropertiesImagesList';
 import { IoLocationSharp, IoShieldCheckmarkSharp } from 'react-icons/io5';
 import { TbLeaf } from 'react-icons/tb';
@@ -24,9 +24,10 @@ interface IProperty {
 
 interface IProps {
   data: IProperty;
+  openModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const PropertiesGallery = ({ data }: IProps) => {
+const PropertiesGallery = ({ data, openModal }: IProps) => {
   return (
     <div className="flex-[3.5] flex flex-col space-y-10">
       {/* TITLE AND RESERVE BUTTON */}
@@ -56,7 +57,11 @@ const PropertiesGallery = ({ data }: IProps) => {
         </div>
         {/* - Reservation button */}
         <div className="flex self-start space-x-2 lg:space-x-0 lg:flex-col lg:space-y-2 lg:mx-2">
-          <button className=" px-5 py-2 text-lg font-semibold  bg-brandBlueSec100 text-white hover:bg-brandBlueSec200 rounded-sm">
+          <button
+            onClick={() => openModal((prev) => !prev)}
+            type="button"
+            className=" px-5 py-2 text-lg font-semibold  bg-brandBlueSec100 text-white hover:bg-brandBlueSec200 rounded-sm"
+          >
             Reserve
           </button>
           <div className="flex items-center space-x-1">
