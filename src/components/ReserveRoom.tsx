@@ -1,4 +1,4 @@
-import React, {
+import {
   Dispatch,
   FormEvent,
   SetStateAction,
@@ -26,7 +26,7 @@ const ReserveRoom = ({ openModal, propertyId }: IProps) => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const { data, loading } = useFetch(
-    `http://localhost:5000/api/v1/rooms/property/${propertyId}`
+    `https://flyawaytravels.herokuapp.com/api/v1/rooms/property/${propertyId}`
   );
 
   const listOfEachDay = useCallback((startDate: Date, endDate: Date) => {
@@ -70,13 +70,16 @@ const ReserveRoom = ({ openModal, propertyId }: IProps) => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const roomReservationPromises = selectedRoomIds.map((roomId) => {
-      return fetch(`http://localhost:5000/api/v1/rooms/${roomId}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ dates: selectedDays }),
-      });
+      return fetch(
+        `https://flyawaytravels.herokuapp.com/api/v1/rooms/${roomId}`,
+        {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ dates: selectedDays }),
+        }
+      );
     });
     const data = await Promise.all(roomReservationPromises);
     console.log(data);

@@ -1,6 +1,6 @@
 import React, { useState, useContext, useRef, LegacyRef } from 'react';
 import { DateRange } from 'react-date-range';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import format from 'date-fns/format';
 import { IoBed, IoPersonSharp } from 'react-icons/io5';
 import { BiCalendar } from 'react-icons/bi';

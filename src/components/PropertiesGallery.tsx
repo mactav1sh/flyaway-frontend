@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import PropertiesImagesList from './PropertiesImagesList/PropertiesImagesList';
 import { IoLocationSharp, IoShieldCheckmarkSharp } from 'react-icons/io5';
 import { TbLeaf } from 'react-icons/tb';

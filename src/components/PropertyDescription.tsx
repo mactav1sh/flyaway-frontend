@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import TagList from './TagList/TagList';
 import { GrLocation } from 'react-icons/gr';
 import { MdBalcony } from 'react-icons/md';

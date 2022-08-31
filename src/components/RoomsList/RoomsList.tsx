@@ -1,4 +1,3 @@
-import React from 'react';
 import RoomsListItem from './RoomsListItem';
 
 interface IRoom {

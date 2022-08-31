@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface IProps {
   styleClasses: string;
@@ -16,12 +16,6 @@ const PersonsCount = ({
   setRoomOptions,
   roomOptions,
 }: IProps) => {
-  // const [roomOptions, setRoomOptions] = useState({
-  //   adults: 2,
-  //   children: 0,
-  //   room: 1,
-  // });
-
   const handleClick = (option: roomOptions, operation: operationOptions) => {
     if (operation === '+') {
       setRoomOptions((prevState) => ({

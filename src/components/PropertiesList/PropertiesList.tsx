@@ -1,4 +1,3 @@
-import React from 'react';
 import PropertiesListItem from './PropertiesListItem';
 
 interface IProps {

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import TagListItem from './TagListItem';
 
 interface IProps {

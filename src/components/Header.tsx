@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { BiBed, BiCar } from 'react-icons/bi';
 import { IoAirplaneOutline } from 'react-icons/io5';

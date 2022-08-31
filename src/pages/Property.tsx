@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import PropertyDescription from '../components/PropertyDescription';
@@ -14,7 +14,7 @@ const Property = () => {
   const [openModal, setOpenModal] = useState(false);
   const { propertyId } = useParams();
   const { data, loading } = useFetch(
-    `http://localhost:5000/api/v1/properties/${propertyId}`
+    `https://flyawaytravels.herokuapp.com/api/v1/properties/${propertyId}`
   );
 
   return (

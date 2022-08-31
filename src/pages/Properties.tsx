@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 import PropertySearchForm from '../components/PropertySearchForm';
@@ -20,7 +19,7 @@ const Properties = () => {
   const typeParam = type ? `type=${type}` : '';
 
   const { data, loading } = useFetch(
-    `http://localhost:5000/api/v1/properties?minPrice=${minPrice}&maxPrice=${maxPrice}&limit=10&${locationParam}${typeParam}`
+    `https://flyawaytravels.herokuapp.com/api/v1/properties?minPrice=${minPrice}&maxPrice=${maxPrice}&limit=10&${locationParam}${typeParam}`
   );
 
   return (

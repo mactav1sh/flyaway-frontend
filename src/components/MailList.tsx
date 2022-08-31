@@ -1,5 +1,3 @@
-import React from 'react';
-
 const MailList = () => {
   return (
     <section className="bg-brandBlue400">

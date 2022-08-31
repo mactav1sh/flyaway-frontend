@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useContext } from 'react';
+import { ChangeEvent, useCallback, useContext } from 'react';
 import { IoPersonSharp } from 'react-icons/io5';
 import { ReservationContext } from '../../contexts/ReservationContext';
 
