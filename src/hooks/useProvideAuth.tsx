@@ -12,16 +12,13 @@ const useProvideAuth = () => {
     password: string
   ): Promise<void | IUser> {
     setLoading(true);
-    const response = await fetch(
-      'https://flyawaytravels.herokuapp.com/api/v1/users/sign-in',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      }
-    );
+    const response = await fetch('http://localhost:5000/api/v1/users/sign-in', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
     const json = await response.json();
 
     if (response.ok) {
@@ -48,16 +45,13 @@ const useProvideAuth = () => {
       passwordConfirm,
     };
     setLoading(true);
-    const response = await fetch(
-      'https://flyawaytravels.herokuapp.com/api/v1/users/sign-up',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(body),
-      }
-    );
+    const response = await fetch('http://localhost:5000/api/v1/users/sign-up', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
     const json = await response.json();
 
     if (response.ok) {
@@ -73,9 +67,7 @@ const useProvideAuth = () => {
   // SIGN OUT
 
   async function signOut(): Promise<void> {
-    const response = await fetch(
-      'https://flyawaytravels.herokuapp.com/api/v1/users/sign-out'
-    );
+    const response = await fetch('http://localhost:5000/api/v1/users/sign-out');
 
     const json = await response.json();
 

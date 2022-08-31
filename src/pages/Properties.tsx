@@ -6,6 +6,7 @@ import MailList from '../components/MailList';
 import Footer from '../components/Footer';
 import useFetch from '../hooks/useFetch';
 import { useSearchParams } from 'react-router-dom';
+import { CgSpinnerTwoAlt } from 'react-icons/cg';
 
 const Properties = () => {
   const [searchParams] = useSearchParams();
@@ -19,7 +20,7 @@ const Properties = () => {
   const typeParam = type ? `type=${type}` : '';
 
   const { data, loading } = useFetch(
-    `https://flyawaytravels.herokuapp.com/api/v1/properties?minPrice=${minPrice}&maxPrice=${maxPrice}&limit=10&${locationParam}${typeParam}`
+    `http://localhost:5000/api/v1/properties?minPrice=${minPrice}&maxPrice=${maxPrice}&limit=10&${locationParam}${typeParam}`
   );
 
   return (
@@ -29,8 +30,9 @@ const Properties = () => {
       <main className="max-w-6xl mt-5 mb-24 mx-2 lg:mx-auto flex flex-col justify-center space-x-0 space-y-8 md:space-y-0 md:flex-row md:space-x-4">
         <PropertySearchForm />
         {loading ? (
-          // will be replaced later with acutal loading component
-          <h1>loading...</h1>
+          <div className="flex-[3.5] flex items-center justify-center py-10">
+            <CgSpinnerTwoAlt className="w-9 h-9 animate-spin" />
+          </div>
         ) : (
           <PropertiesList data={data.properties} />
         )}

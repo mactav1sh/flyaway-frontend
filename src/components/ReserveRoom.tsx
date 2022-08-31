@@ -7,6 +7,7 @@ import {
   useEffect,
 } from 'react';
 import { FaWindowClose } from 'react-icons/fa';
+import { CgSpinnerTwoAlt } from 'react-icons/cg';
 import { useNavigate } from 'react-router-dom';
 import RoomsList from '../components/RoomsList/RoomsList';
 import { ReservationContext } from '../contexts/ReservationContext';
@@ -26,25 +27,26 @@ const ReserveRoom = ({ openModal, propertyId }: IProps) => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const { data, loading } = useFetch(
-    `https://flyawaytravels.herokuapp.com/api/v1/rooms/property/${propertyId}`
+    `http://localhost:5000/api/v1/rooms/property/${propertyId}`
   );
 
   const listOfEachDay = useCallback((startDate: Date, endDate: Date) => {
     // A fn that takes two dates and returns an array of the days between the start and end dates
     let list: number[] = [];
-    const start = new Date(startDate).getDate();
-    const end = new Date(endDate).getDate();
-    let date = new Date(startDate);
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    let date = new Date(start.getTime());
+
     // If the stay is more than one day
-    if (start <= end) {
-      while (date.getDate() <= end) {
-        list.push(date.getTime());
+    if (date <= end) {
+      while (date <= end) {
+        list.push(new Date(date).getTime());
         date.setDate(date.getDate() + 1);
       }
     }
     // If the stay is one day
     else {
-      list.push(date.getTime());
+      list.push(new Date(date).getTime());
     }
     return list;
   }, []);
@@ -69,20 +71,21 @@ const ReserveRoom = ({ openModal, propertyId }: IProps) => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (selectedRoomIds.length < 0) {
+      dispatch({ type: 'RESET', payload: [] });
+      openModal(false);
+    }
+
     const roomReservationPromises = selectedRoomIds.map((roomId) => {
-      return fetch(
-        `https://flyawaytravels.herokuapp.com/api/v1/rooms/${roomId}`,
-        {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ dates: selectedDays }),
-        }
-      );
+      return fetch(`http://localhost:5000/api/v1/rooms/${roomId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ dates: selectedDays }),
+      });
     });
     const data = await Promise.all(roomReservationPromises);
-    console.log(data);
     openModal(false);
     dispatch({ type: 'RESET', payload: [] });
   };
@@ -100,7 +103,13 @@ const ReserveRoom = ({ openModal, propertyId }: IProps) => {
         </button>
         {/* - Form and room list */}
         <form onSubmit={handleSubmit}>
-          {!loading && <RoomsList data={data.rooms} />}
+          {loading ? (
+            <div className="flex items-center justify-center p-16">
+              <CgSpinnerTwoAlt className="w-7 h-7 animate-spin" />
+            </div>
+          ) : (
+            <RoomsList data={data.rooms} />
+          )}
 
           {/* -- button and total */}
           <div className="w-full flex justify-center items-center space-x-10">

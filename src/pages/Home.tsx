@@ -17,12 +17,12 @@ import {
 const Home = () => {
   // Fetching property types
   const { data: propertiesData, loading: loadingProperties } = useFetch(
-    'https://flyawaytravels.herokuapp.com/api/v1/properties/types-count'
+    'http://localhost:5000/api/v1/properties/types-count'
   );
 
   // Fetching property types
   const { data: citiesData, loading: loadingCities } = useFetch(
-    'https://flyawaytravels.herokuapp.com/api/v1/properties/cities-count'
+    'http://localhost:5000/api/v1/properties/cities-count'
   );
 
   return (
