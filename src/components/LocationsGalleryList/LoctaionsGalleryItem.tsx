@@ -26,11 +26,11 @@ const LoctaionsGalleryItem = ({ title, img, count }: IProps) => {
           {/* TEXT */}
           <div className="text-white absolute top-4 left-4 textShadow">
             <div className="flex items-end space-x-2">
-              <p className="md:text-3xl text-xl font-bold capitalize">
+              <p className="text-base md:text-3xl font-bold capitalize">
                 {titleWithSpaces}
               </p>
             </div>
-            <p className="text-sm md:text-base">{count} properties</p>
+            <p className="text-xs md:text-base">{count} properties</p>
           </div>
         </div>
       </Link>

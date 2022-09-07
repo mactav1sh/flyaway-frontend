@@ -71,7 +71,7 @@ const PropertiesGallery = ({ data, openModal }: IProps) => {
         </div>
       </div>
       {/* IMAGE GALLERY */}
-      <div className="">
+      <div>
         <PropertiesImagesList data={data.photos as string[]} />
       </div>
     </div>

@@ -37,17 +37,11 @@ const ReserveRoom = ({ openModal, propertyId }: IProps) => {
     const end = new Date(endDate);
     let date = new Date(start.getTime());
 
-    // If the stay is more than one day
-    if (date <= end) {
-      while (date <= end) {
-        list.push(new Date(date).getTime());
-        date.setDate(date.getDate() + 1);
-      }
-    }
-    // If the stay is one day
-    else {
+    while (date <= end) {
       list.push(new Date(date).getTime());
+      date.setDate(date.getDate() + 1);
     }
+
     return list;
   }, []);
 

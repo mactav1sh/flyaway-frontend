@@ -32,7 +32,7 @@ const RegisterForm = () => {
     <div className="flex-1 flex flex-col items-center">
       <h1 className="text-2xl font-bold mt-4 mb-10">Create an account</h1>
       <form onSubmit={handleSubmit}>
-        <div className="mb-10">
+        <div className="mb-10 w-72 md:w-[360px]">
           {/* USERNAME */}
           <div className="flex flex-col space-y-1.5 mb-3">
             <label htmlFor="username" className="text-sm font-semibold">
@@ -46,7 +46,7 @@ const RegisterForm = () => {
               onChange={handleChange}
               type="text"
               id="username"
-              className="border h-9 px-2 py-1 min-w-[20rem] md:w-[360px] rounded-sm border-gray-400 focus:outline-brandBlueSec100"
+              className="border h-9 px-2 py-1  rounded-sm border-gray-400 focus:outline-brandBlueSec100"
             />
           </div>
 
@@ -61,7 +61,7 @@ const RegisterForm = () => {
               onChange={handleChange}
               type="email"
               id="email"
-              className="border h-9 px-2 py-1 min-w-[20rem] md:w-[360px] rounded-sm border-gray-400 focus:outline-brandBlueSec100"
+              className="border h-9 px-2 py-1  rounded-sm border-gray-400 focus:outline-brandBlueSec100"
             />
           </div>
 
@@ -77,7 +77,7 @@ const RegisterForm = () => {
               minLength={8}
               id="password"
               type="password"
-              className="border h-9 px-2 py-1 min-w-[20rem] md:w-[360px] rounded-sm border-gray-400 focus:outline-brandBlueSec100"
+              className="border h-9 px-2 py-1  rounded-sm border-gray-400 focus:outline-brandBlueSec100"
             />
           </div>
 
@@ -93,7 +93,7 @@ const RegisterForm = () => {
               onChange={handleChange}
               type="password"
               id="passwordConfirm"
-              className="border h-9 px-2 py-1 min-w-[20rem] md:w-[360px] rounded-sm border-gray-400 focus:outline-brandBlueSec100"
+              className="border h-9 px-2 py-1  rounded-sm border-gray-400 focus:outline-brandBlueSec100"
             />
           </div>
           <button

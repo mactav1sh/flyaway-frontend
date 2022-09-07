@@ -71,7 +71,7 @@ const PropertySearchForm = () => {
                 placeholder="Where are you going?"
                 className="w-full h-full p-2 pl-11 placeholder:text-black placeholder:text-sm rounded-sm focus:outline-none focus:placeholder:text-gray-400 hover:outline-2
               hover:outline
-              hover:outline-brandYellowDark
+              hover:outline-brandYellowDark placeholder:text-inherit
               "
               />
               <IoBed className="absolute ml-2 h-5 w-5 text-gray-300" />

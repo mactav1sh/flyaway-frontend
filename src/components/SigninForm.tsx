@@ -27,7 +27,7 @@ const SigninForm = () => {
     <div className="flex-1 flex flex-col items-center">
       <h1 className="text-2xl font-bold mt-4 mb-10">Sign in</h1>
       <form onSubmit={handleSubmit}>
-        <div className="mb-10">
+        <div className="mb-10 w-72 md:w-[360px]">
           {/* EMAIL */}
           <div className="flex flex-col space-y-1.5 mb-3">
             <label htmlFor="email" className="text-sm font-semibold">
@@ -38,7 +38,7 @@ const SigninForm = () => {
               onChange={handleChange}
               type="email"
               id="email"
-              className="border h-9 px-2 py-1 w-[360px] rounded-sm border-gray-400 focus:outline-brandBlueSec100"
+              className="border h-9 px-2 py-1 rounded-sm border-gray-400 focus:outline-brandBlueSec100"
             />
           </div>
           {/* PASSWORD */}
@@ -51,7 +51,7 @@ const SigninForm = () => {
               onChange={handleChange}
               id="password"
               type="password"
-              className="border h-9 px-2 py-1 w-[360px] rounded-sm border-gray-400 focus:outline-brandBlueSec100"
+              className="border h-9 px-2 py-1 rounded-sm border-gray-400 focus:outline-brandBlueSec100"
             />
           </div>
           <button
@@ -62,7 +62,7 @@ const SigninForm = () => {
           </button>
           {/* ERROR */}
           {error && (
-            <p className="text-center text-red-600 bg-red-50 mt-3 py-2 border border-red-600 font-semibold">
+            <p className="text-center text-red-600 bg-red-50 mt-3 py-2 border border-red-600 font-semibold max-w-[320px] md:max-w-[360px]">
               {error}
             </p>
           )}
