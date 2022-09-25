@@ -1,78 +1,78 @@
-import { Link } from 'react-router-dom';
-import { BiBed, BiCar } from 'react-icons/bi';
-import { IoAirplaneOutline } from 'react-icons/io5';
-import { TbBuildingCarousel } from 'react-icons/tb';
+import { Link, useNavigate } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
+import { IoPersonCircleSharp } from 'react-icons/io5';
 
-interface IProps {
-  showTitle?: boolean;
-}
+const Header = () => {
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
 
-const Header = ({ showTitle = true }: IProps) => {
+  const handleClick = async () => {
+    await signOut();
+    navigate('/signin');
+  };
+
   return (
-    <header className="bg-brandBlue text-white">
-      <div className="max-w-6xl mx-auto px-2">
-        <ul className="overflow-x-auto no-x-scroll-bar">
-          <div
-            className={`flex items-center  space-x-3 px-1 pt-2 ${
-              showTitle ? 'mb-20' : 'mb-3'
-            }`}
-          >
-            <li>
-              <Link to="#">
-                <div className="flex items-center space-x-1 py-1 px-2 md:px-3 md:py-2 border rounded-full border-white bg-brandBlue300 ">
-                  <BiBed className="h-5 w-5 md:w-6 md:h-6" />
-                  <span className="text-sm md:text-base">Stays</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <div className="flex items-center space-x-1 py-1 px-2 md:px-3 md:py-2 rounded-full hover:bg-brandBlue300 cursor-not-allowed">
-                  <IoAirplaneOutline className="w-5 h-5" />
-                  <span className="text-sm md:text-base">Flights</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <div className="flex items-center space-x-1 w-32 py-1 px-2 md:px-3 md:py-2 rounded-full hover:bg-brandBlue300 cursor-not-allowed">
-                  <BiCar className="w-5 h-5" />
-                  <span className="text-sm md:text-base">Car rentals</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <div className="flex items-center space-x-1 py-1 px-2 md:px-3 md:py-2 rounded-full hover:bg-brandBlue300 cursor-not-allowed">
-                  <TbBuildingCarousel className="w-5 h-5" />
-                  <span className="text-sm md:text-base">Attractions</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <div className="flex items-center space-x-1 w-40 py-1 px-2 md:px-3 md:py-2 rounded-full hover:bg-brandBlue300 cursor-not-allowed ">
-                  <span className="uppercase text-[0.6rem] border-t border-b ">
-                    taxi
-                  </span>
-                  <span className="text-sm md:text-base">Airport taxis</span>
-                </div>
-              </Link>
-            </li>
+    <header className="bg-brandBlue">
+      <div className="flex justify-between px-5 py-4 max-w-6xl text-white mx-auto">
+        <Link to="/" className="text-lg font-bold md:text-2xl ml-2">
+          Booking
+        </Link>
+
+        <ul>
+          <div className="flex space-x-2 items-center flex-wrap ">
+            {user && (
+              <>
+                <li>
+                  <Link to="/" className="">
+                    <div className="flex items-center space-x-1 hover:bg-brandBlue300 md:py-2 md:px-2 mr-1 rounded-sm">
+                      {/* image */}
+                      <div className="relative">
+                        <div className="h-7 w-7 absolute border-brandYellow border-2 right-0.5 top-0.5 rounded-full"></div>
+                        <IoPersonCircleSharp className="h-8 w-8  rounded-full" />
+                      </div>
+                      {/* text */}
+                      <p className="font-semibold capitalize text-sm md:text-base">
+                        {user.name}
+                      </p>
+                    </div>
+                  </Link>
+                </li>
+
+                <li>
+                  <button
+                    onClick={handleClick}
+                    type="button"
+                    className="px-2 py-0.5 text-sm font-semibold text-white bg-brandBlue border border-white rounded-sm hover:bg-brandBlue300 active:outline active:outline-brandBlue300 md:px-4 md:text-base "
+                  >
+                    Sign out
+                  </button>
+                </li>
+              </>
+            )}
+
+            {!user && (
+              <>
+                <li>
+                  <Link
+                    to="/register"
+                    className="px-2 py-0.5 text-sm md:px-4 md:py-1 font-semibold text-brandBlue200 bg-white border border-brandBlue200 rounded-sm hover:bg-blue-50 active:outline active:outline-brandBlue300"
+                  >
+                    Register
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to="/signin"
+                    className="px-2 py-0.5 text-sm md:px-4 md:py-1 font-semibold text-brandBlue200 bg-white border border-brandBlue200 rounded-sm hover:bg-blue-50 active:outline active:outline-brandBlue300"
+                  >
+                    Sign in
+                  </Link>
+                </li>
+              </>
+            )}
           </div>
         </ul>
-
-        {/* TITLE AND DESC */}
-        {showTitle && (
-          <>
-            <h1 className="text-4xl font-bold mb-3 md:text-5xl">
-              Find your next stay
-            </h1>
-            <h2 className="text-xl md:text-2xl md:max-w-none">
-              Search deals on hotels, homes, and much more...
-            </h2>
-          </>
-        )}
       </div>
     </header>
   );

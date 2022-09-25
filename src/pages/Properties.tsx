@@ -1,5 +1,5 @@
-import Header from '../components/Header';
 import Navigation from '../components/Navigation';
+import Header from '../components/Header';
 import PropertySearchForm from '../components/PropertySearchForm';
 import PropertiesList from '../components/PropertiesList/PropertiesList';
 import MailList from '../components/MailList';
@@ -25,8 +25,8 @@ const Properties = () => {
 
   return (
     <>
-      <Navigation />
-      <Header showTitle={false} />
+      <Header />
+      <Navigation showTitle={false} />
       <main className="max-w-6xl mt-5 mb-24 mx-2 lg:mx-auto flex flex-col justify-center space-x-0 space-y-8 md:space-y-0 md:flex-row md:space-x-4">
         <PropertySearchForm />
         {loading ? (

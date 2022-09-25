@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import Footer from '../components/Footer';
 import SigninForm from '../components/SigninForm';
-import Navigation from '../components/Navigation';
+import Header from '../components/Header';
 import useAuth from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 
@@ -18,7 +18,7 @@ const Signin = () => {
 
   return (
     <div className="h-screen flex flex-col">
-      <Navigation />
+      <Header />
       <SigninForm />
       <Footer />
     </div>

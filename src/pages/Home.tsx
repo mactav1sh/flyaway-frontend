@@ -27,8 +27,8 @@ const Home = () => {
 
   return (
     <>
-      <Navigation />
       <Header />
+      <Navigation />
       <SearchForm />
       {/* Property types slides */}
       {!loadingProperties && (

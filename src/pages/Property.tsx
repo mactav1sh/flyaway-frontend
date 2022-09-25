@@ -20,8 +20,8 @@ const Property = () => {
 
   return (
     <>
-      <Navigation />
-      <Header showTitle={false} />
+      <Header />
+      <Navigation showTitle={false} />
       {loading ? (
         <div className="flex items-center justify-center h-[50vh]">
           <CgSpinnerTwoAlt className="w-7 h-7 animate-spin" />
