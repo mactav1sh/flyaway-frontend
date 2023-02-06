@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-const useFetch = (url: string) => {
+const useFetch = (endpoint: string) => {
   const [data, setData] = useState<any>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error>();
-
+  const url = process.env.REACT_APP_API + endpoint;
   useEffect(() => {
     try {
       const fetchData = async () => {

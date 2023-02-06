@@ -26,9 +26,7 @@ const ReserveRoom = ({ openModal, propertyId }: IProps) => {
   const { date } = useContext(SearchContext);
   const { user } = useAuth();
   const navigate = useNavigate();
-  const { data, loading } = useFetch(
-    `http://localhost:5000/api/v1/rooms/property/${propertyId}`
-  );
+  const { data, loading } = useFetch(`rooms/property/${propertyId}`);
 
   const listOfEachDay = useCallback((startDate: Date, endDate: Date) => {
     // A fn that takes two dates and returns an array of the days between the start and end dates
@@ -71,7 +69,7 @@ const ReserveRoom = ({ openModal, propertyId }: IProps) => {
     }
 
     const roomReservationPromises = selectedRoomIds.map((roomId) => {
-      return fetch(`http://localhost:5000/api/v1/rooms/${roomId}`, {
+      return fetch(`${process.env.REACT_APP_API}rooms/${roomId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -79,7 +77,7 @@ const ReserveRoom = ({ openModal, propertyId }: IProps) => {
         body: JSON.stringify({ dates: selectedDays }),
       });
     });
-    const data = await Promise.all(roomReservationPromises);
+    await Promise.all(roomReservationPromises);
     openModal(false);
     dispatch({ type: 'RESET', payload: [] });
   };

@@ -17,12 +17,12 @@ import {
 const Home = () => {
   // Fetching property types
   const { data: propertiesData, loading: loadingProperties } = useFetch(
-    'http://localhost:5000/api/v1/properties/types-count'
+    'properties/types-count'
   );
 
   // Fetching property types
   const { data: citiesData, loading: loadingCities } = useFetch(
-    'http://localhost:5000/api/v1/properties/cities-count'
+    'properties/cities-count'
   );
 
   return (

@@ -14,9 +14,7 @@ import { CgSpinnerTwoAlt } from 'react-icons/cg';
 const Property = () => {
   const [openModal, setOpenModal] = useState(false);
   const { propertyId } = useParams();
-  const { data, loading } = useFetch(
-    `http://localhost:5000/api/v1/properties/${propertyId}`
-  );
+  const { data, loading } = useFetch(`properties/${propertyId}`);
 
   return (
     <>

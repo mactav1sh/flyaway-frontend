@@ -12,7 +12,7 @@ const useProvideAuth = () => {
     password: string
   ): Promise<void | IUser> {
     setLoading(true);
-    const response = await fetch('http://localhost:5000/api/v1/users/sign-in', {
+    const response = await fetch(`${process.env.REACT_APP_API}users/sign-in`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ const useProvideAuth = () => {
       passwordConfirm,
     };
     setLoading(true);
-    const response = await fetch('http://localhost:5000/api/v1/users/sign-up', {
+    const response = await fetch(`${process.env.REACT_APP_API}users/sign-up`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ const useProvideAuth = () => {
   // SIGN OUT
 
   async function signOut(): Promise<void> {
-    const response = await fetch('http://localhost:5000/api/v1/users/sign-out');
+    const response = await fetch(`${process.env.REACT_APP_API}users/sign-out`);
 
     const json = await response.json();
 

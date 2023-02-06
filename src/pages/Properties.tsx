@@ -20,7 +20,7 @@ const Properties = () => {
   const typeParam = type ? `type=${type}` : '';
 
   const { data, loading } = useFetch(
-    `http://localhost:5000/api/v1/properties?minPrice=${minPrice}&maxPrice=${maxPrice}&limit=10&${locationParam}${typeParam}`
+    `properties?minPrice=${minPrice}&maxPrice=${maxPrice}&limit=10&${locationParam}${typeParam}`
   );
 
   return (
